@@ -7,10 +7,7 @@ This will be sent by the client to the server and from the server to the client 
     // Only sent by Client
     "client": {
         "token": string?,
-        "requests": [
-            string,
-            // "ALL_FILES",
-        ]
+        "fetchAll": boolean?,
     }?,
     // Only sent by Server
     "server": {},
@@ -28,6 +25,13 @@ This will be sent by the client to the server and from the server to the client 
 
 ```rs
 type Packet = Option<Vec<File>>;
+
+struct Packet = {
+    clientData: Optional<ClientData>,
+    serverData: Optional<ServerData>,
+    files: Optional<Vec<File>>,
+};
+
 struct File = {
     filepath: String,
     filehash: String,
